@@ -17,7 +17,7 @@ http://www.mulesoft.org/schema/mule/american-flights-api http://www.mulesoft.org
 			<http:uri-params ><![CDATA[#[output application/java
 ---
 {
-	"dest" : "vars.code"
+	dest : vars.code
 }]]]></http:uri-params>
 		</http:request>
 	</flow>
