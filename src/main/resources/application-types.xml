@@ -47,4 +47,31 @@ type united_flights_json = {|
       </types:output-event>
     </types:processor-declaration>
   </types:enrichment>
+  <types:enrichment select="#23a63fc8-3b24-42e3-8900-2ad97607e994">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="Flight_pojo[]"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#9953c4cd-0a7a-4d4e-8943-ce2964348e92">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="Flight_pojo[]"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
+  <types:enrichment select="#06358986-ead5-4699-bf82-a94ac37c2da4">
+    <types:processor-declaration>
+      <types:output-event>
+        <types:message>
+          <types:payload type="Flight_pojo[]"/>
+        </types:message>
+      </types:output-event>
+    </types:processor-declaration>
+  </types:enrichment>
 </types:mule>
