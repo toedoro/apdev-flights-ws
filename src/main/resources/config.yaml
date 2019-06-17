@@ -2,10 +2,17 @@ http:
   port: "8081"
   
 american:
-  host: "training4-american-api-{lastname}.cloudhub.io" 
+  host: "training4-american-api-delacerna.cloudhub.io" 
   port: "80"
   basepath: "/"
   protocol: "HTTP"
-  client_id:
-  client_secret:
+  client_id: "your_client_id"
+  client_secret: "your_client_secret"
+  
+training:
+  host: "mu.learn.mulesoft.com"
+  port: "80"
+  basepath: "/"
+  protocol: "HTTP"
+
   
