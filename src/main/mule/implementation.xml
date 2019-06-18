@@ -228,7 +228,7 @@ payload.body.ns0#findFlightResponse.*return map ( return , indexOfReturn ) -> {
 	<sub-flow name="setCode" doc:id="d7e5af6e-2801-4aa7-b549-557f51c275e7" >
 		<set-variable value="#[attributes.queryParams.code default 'SFO']" doc:name="code" doc:id="1ba6444a-0b14-4fdf-8e16-47b9e2ba7b1f" variableName="code"/>
 	</sub-flow>
-	<flow name="postFlight" doc:id="5d4525d6-6ba6-4d2f-a7a7-8c2a07fc1d02" >
+	<flow name="postFlights" doc:id="5d4525d6-6ba6-4d2f-a7a7-8c2a07fc1d02" >
 		<ee:transform doc:name="Transform Message" doc:id="4ea7a9a4-abff-4813-bfa7-dc2b62deb93b" >
 			<ee:message >
 				<ee:set-payload resource="json_flight_playground.dwl" />
@@ -241,5 +241,19 @@ payload]]></ee:set-variable>
 			</ee:variables>
 		</ee:transform>
 		<logger level="INFO" doc:name="Logger" doc:id="ac9b3bae-d1dd-44f6-a443-08315b3baeb2" message="#[payload]"/>
+	</flow>
+	<flow name="postMultipleFlights" doc:id="5e9fe7d3-9eaa-424f-a55c-0a818082981b" >
+		<http:listener doc:name="POST /multipleflights" doc:id="20c35200-f5b5-4c6e-8bdd-64c6ba2c105f" config-ref="HTTP_Listener_config" path="/multipleflights" allowedMethods="POST"/>
+		<ee:transform doc:name="Transform Message" doc:id="b510e160-1b0e-4f9f-aac6-059222f69d16" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/dw
+---
+payload map (object, index) -> {
+	(index): object
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+		<logger level="INFO" doc:name="Logger" doc:id="c144f60c-09dd-48f5-8883-0ff3d504f880" message="#[payload]"/>
 	</flow>
 </mule>
